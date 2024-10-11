@@ -15,7 +15,7 @@ if (os.environ['ENV'] == 'development'):
     cors = CORS(app, origins="*")
 else:
     cors = CORS(app, resources={
-                r"/*": {"origins": "https://jayyy-s.github.io/NoraAssistant/"}})
+                r"/*": {"origins": ["https://jayyy-s.github.io"]}})
 # OpenAI API client
 client = OpenAI()
 
