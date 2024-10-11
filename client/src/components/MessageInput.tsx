@@ -37,12 +37,15 @@ const MessageInput = (props: {
 
   return (
     <div className="w-full relative mb-8">
-      <InputButton isActive={message.length === 0} onClick={() => updateAnalysis(message)} />
+      <InputButton
+        isActive={message.length === 0}
+        onClick={message.length > 0 ? () => updateAnalysis(message) : () => {}}
+      />
       <textarea
         className={`w-full max-h-96 flex justify-center p-4 pr-12 overflow-clip scrollbar-hide outline-none resize-none rounded bg-nora-offwhite border border-slate-400 hover:border-slate-500 focus:border-slate-500 hover:shadow-sm focus:shadow-md transition-all duration-200 text-lg`}
         placeholder="What's the last thing a patient said to you?"
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
+        onKeyDown={message.length > 0 ? handleKeyDown : () => {}}
         value={message}
         required
       />
