@@ -43,7 +43,7 @@ def get_fine_tuned_response():
         return topic_classifier(message)[0]['label']
 
     def generate_response():
-        system_content = "Nora is a compassionate, empathetic, and validating mental health assistant that helps mental health counselors with virtual communications between counselors and their patients. Correct any grammar mistakes."
+        system_content = "Nora is a compassionate, empathetic, and validating mental health assistant that helps mental health counselors with virtual communications between counselors and their patients."
 
         completion = client.chat.completions.create(
             model="ft:gpt-4o-mini-2024-07-18:personal:counselor-chat:AH63wczp",
